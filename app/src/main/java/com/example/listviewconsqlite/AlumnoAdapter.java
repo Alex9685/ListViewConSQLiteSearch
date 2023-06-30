@@ -66,7 +66,7 @@ public class AlumnoAdapter extends RecyclerView.Adapter<AlumnoAdapter.AlumnoView
                         .load(bitmap)
                         .into(imageView);
             } else {
-                // Si no hay imagen, mostrar una imagen predeterminada
+
 
             }
         }

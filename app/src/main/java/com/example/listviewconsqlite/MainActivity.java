@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Salir(View view) {
-        finishAffinity(); // Cierra todas las actividades abiertas en la aplicación
-        System.exit(0); // Cierra completamente la aplicación
+        finishAffinity();
+        System.exit(0); // Cierra la aplicación
     }
 
 }

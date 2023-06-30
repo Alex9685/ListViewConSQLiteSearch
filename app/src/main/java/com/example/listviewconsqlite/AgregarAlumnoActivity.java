@@ -28,7 +28,7 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
 
     private DatabaseManager db;
     private ImageView imageView;
-    private int alumnoId; // Nuevo atributo para almacenar el ID del alumno seleccionado
+    private int alumnoId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +41,13 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
         // Verifica si se enviaron datos extras
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            alumnoId = extras.getInt("ALUMNO_ID"); // Guarda el ID del alumno seleccionado
+            alumnoId = extras.getInt("ALUMNO_ID");
 
             String alumnoNombre = extras.getString("ALUMNO_NOMBRE");
             String alumnoMatricula = extras.getString("ALUMNO_MATRICULA");
             byte[] alumnoFoto = extras.getByteArray("ALUMNO_FOTO");
 
-            // Establece los valores en los campos correspondientes
+
             EditText etNombre = findViewById(R.id.etNombre);
             EditText etMatricula = findViewById(R.id.etMatricula);
 
@@ -75,7 +75,7 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
             return; // Sale del método sin guardar el alumno
         }
 
-        // Obtén los datos de la imagen como un array de bytes
+
         byte[] foto = obtenerDatosImagen();
 
         if (alumnoId != 0) {
@@ -92,7 +92,7 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
             Toast.makeText(this, "Alumno agregado correctamente", Toast.LENGTH_SHORT).show();
         }
 
-        // Regresar al MainActivity
+        // Regresar
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
@@ -102,10 +102,10 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
         byte[] datosImagen = null;
 
         try {
-            // Obtén la imagen como Bitmap desde el ImageView
+
             Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
 
-            // Convierte el Bitmap a un array de bytes
+
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
             datosImagen = stream.toByteArray();
@@ -128,7 +128,7 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_IMAGE_GALLERY && resultCode == RESULT_OK && data != null) {
-            // Obtiene la imagen seleccionada de la galería y la muestra en el ImageView
+
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
                 imageView.setImageBitmap(bitmap);

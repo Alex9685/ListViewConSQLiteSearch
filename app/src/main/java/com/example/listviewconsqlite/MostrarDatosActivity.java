@@ -159,12 +159,12 @@ public class MostrarDatosActivity extends AppCompatActivity implements SearchVie
 
         @Override
         public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-            // No se utiliza
+
         }
 
         @Override
         public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-            // No se utiliza
+
         }
     }
 }
